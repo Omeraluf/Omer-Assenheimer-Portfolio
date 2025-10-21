@@ -75,7 +75,7 @@ const SKILLS = [
   { group: "DevOps", items: ["Git", "Docker", "CI/CD", "Vercel"] }
 ];
 
-const LANGUAGES = ["Python", "Java", "C", "C++", "SQL", "NoSQL", "HTML", "CSS", "Assembly", "Linux", "Jupyter Notebook"];                             // Add it whenever
+//const LANGUAGES = ["Python", "Java", "C", "C++", "SQL", "NoSQL", "HTML", "CSS", "Assembly", "Linux", "Jupyter Notebook"];                             // Add it whenever
 
 
 export default function App() {
