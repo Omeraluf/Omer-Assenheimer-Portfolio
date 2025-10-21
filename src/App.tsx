@@ -12,66 +12,6 @@ import {
 import { Button } from "./components/ui/button";
 import { Card, CardHeader, CardTitle, CardContent } from "./components/ui/card";
 
-
-// // --- Minimal UI components (inline to avoid path issues) ---
-// function Button({
-//   children,
-//   variant = "default",
-//   size = "default",
-//   className = "",
-//   ...props
-// }: React.ButtonHTMLAttributes<HTMLButtonElement> & {
-//   variant?: "default" | "secondary" | "outline";
-//   size?: "default" | "sm";
-//   className?: string;
-// }) {
-//   const base =
-//     "inline-flex items-center justify-center font-medium rounded-2xl transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2";
-//   const variants = {
-//     default:
-//       "bg-neutral-900 text-white hover:bg-neutral-800 focus:ring-neutral-900",
-//     secondary:
-//       "bg-neutral-100 text-neutral-900 hover:bg-neutral-200 focus:ring-neutral-300",
-//     outline:
-//       "border border-neutral-300 text-neutral-900 hover:bg-neutral-50 focus:ring-neutral-300",
-//   } as const;
-//   const sizes = {
-//     default: "px-4 py-2 text-sm",
-//     sm: "px-3 py-1.5 text-sm",
-//   } as const;
-
-//   return (
-//     <button
-//       className={`${base} ${variants[variant]} ${sizes[size]} ${className}`}
-//       {...props}
-//     >
-//       {children}
-//     </button>
-//   );
-// }
-
-// function Card({
-//   children,
-//   className = "",
-// }: React.PropsWithChildren<{ className?: string }>) {
-//   return (
-//     <div className={`border bg-white rounded-2xl shadow-sm ${className}`}>
-//       {children}
-//     </div>
-//   );
-// }
-// function CardHeader({ children }: React.PropsWithChildren) {
-//   return <div className="px-5 pt-4">{children}</div>;
-// }
-// function CardTitle({ children }: React.PropsWithChildren) {
-//   return <h3 className="font-semibold">{children}</h3>;
-// }
-// function CardContent({ children }: React.PropsWithChildren) {
-//   return <div className="px-5 pb-5 pt-2">{children}</div>;
-// }
-// // --- end inline UI components ---
-
-
 // —— QUICK EDIT AREA ——
 const INFO = {
   name: "Omer Assenheimer",
@@ -95,12 +35,12 @@ type Project = {
 
 const PROJECTS: Project[] = [
   {
-    title: "Media Monitor Dashboard",
+    title: "Israeli Media Monitor",
     blurb:
       "Scrapes Israeli outlets (RSS/Selenium), clusters coverage, and visualizes trends.",
-    tech: ["Python", "NLP", "Next.js", "TypeScript", "MongoDB"],
+    tech: ["Python", "Pandas", "NLP", "Sentiment Analysis", "Data Processing", "Web Scraping"],
     live: "#",
-    repo: "#",
+    repo: "https://github.com/Omeraluf/israeli-media-monitor",
   },
   {
     title: "IoT Building Safety Monitor",
@@ -115,25 +55,28 @@ const PROJECTS: Project[] = [
     blurb:
       "ML classification on Kaggle dataset to surface risk patterns and signals.",
     tech: ["Pandas", "scikit-learn", "XGBoost", "Matplotlib"],
-    live: "#",
-    repo: "#",
+    live: "https://drive.google.com/drive/folders/1tEmx-MxRnJQODJ4_HkSGVskL3Y8UyFXA?usp=sharing",
+    repo: "https://github.com/Omeraluf/School-Saftey-Risk-Prediction",
   },
   {
     title: "Job Listings Scraper",
     blurb:
-      "Pipeline that extracts and structures job postings for market insights.",
+      "Python scraper that collects and filters remote job listings into structured data.",
     tech: ["Python", "BeautifulSoup", "Requests", "Pandas"],
     live: "#",
-    repo: "#",
+    repo: "https://github.com/Omeraluf/Remote-jobs-scraper",
   },
 ];
 
 const SKILLS = [
   { group: "Frontend", items: ["React", "Next.js", "TypeScript", "Tailwind", "Shadcn UI"] },
   { group: "Backend", items: ["FastAPI", "Node", "REST", "WebSockets", "Auth"] },
-  { group: "Data", items: ["Pandas", "scikit-learn", "SQL", "MongoDB", "ETL"] },
-  { group: "DevOps", items: ["Git", "Docker", "CI/CD", "Vercel", "Render"] },
+  { group: "Data", items: ["Pandas", "scikit-learn", "TensorFlow", "PyTorch", "Matplotlib", "SQL", "MongoDB", "ETL", "SpaCy", "NLTK", "Seaborn"] },
+  { group: "DevOps", items: ["Git", "Docker", "CI/CD", "Vercel"] }
 ];
+
+const LANGUAGES = ["Python", "Java", "C", "C++", "SQL", "NoSQL", "HTML", "CSS", "Assembly", "Linux", "Jupyter Notebook"];                             // Add it whenever
+
 
 export default function App() {
   const [active, setActive] = useState<"projects" | "skills" | "about" | "contact">("projects");
