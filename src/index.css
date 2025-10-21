@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@layer base {
+  html, body, #root { height: 100%; }
+  body { @apply antialiased bg-white text-gray-900; }
+}
+
+@layer utilities {
+  .container-px { @apply px-4 sm:px-6 lg:px-8; }
+  .glass { @apply bg-white/70 backdrop-blur-md border border-gray-200; }
+}
+
+
