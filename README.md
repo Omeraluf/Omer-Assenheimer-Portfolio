@@ -1,73 +1,59 @@
-# React + TypeScript + Vite
+# Developer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern one-page developer portfolio built with React, TypeScript, Tailwind CSS (v4), and Vite.  
+This project serves as a personal website to showcase my projects, experience, and contact information in a clean and responsive layout.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
 
-## React Compiler
+- React – frontend framework for building dynamic interfaces  
+- TypeScript – type-safe development  
+- Tailwind CSS v4 – utility-first styling  
+- Vite – fast development and build tool  
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Current Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Basic layout and reusable UI components (Button, Card, etc.)  
+- Responsive design for desktop and mobile  
+- Tailwind setup with custom theme and utilities  
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Future Ideas
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Add animations and transitions using Framer Motion  
+- Improve mobile and tablet responsiveness  
+- Add detailed project cards with GitHub and live demo links  
+- Include a downloadable resume section  
+- Create a contact form with email integration (EmailJS or backend API)  
+- Implement dark/light mode toggle  
+- Add smooth scrolling and navigation between sections  
+- Deploy on Vercel  
+
+---
+
+## Getting Started
+
+```bash
+# Clone the repository
+git clone https://github.com/<your-username>/<your-repo>.git
+
+# Navigate into the project folder
+cd <your-repo>
+
+# Install dependencies
+npm install
+
+# Run locally
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Author
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- Omer Assenheimer
+- Israel
+- https://www.linkedin.com/in/omer-assenheimer/
+- https://github.com/Omeraluf/
