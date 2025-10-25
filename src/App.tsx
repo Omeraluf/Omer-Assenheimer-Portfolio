@@ -89,7 +89,7 @@ export default function App() {
             {INFO.name}
           </a>
           <nav className="flex items-center gap-2 text-sm">
-            {[
+            {/* {[
               { id: "projects", label: "Projects" },
               { id: "skills", label: "Skills" },
               { id: "about", label: "About" },
@@ -107,9 +107,41 @@ export default function App() {
               >
                 {link.label}
               </a>
-            ))}
-            <a href={INFO.resumeUrl} className="ml-2">
-              <Button className="rounded-2xl shadow-sm">
+            ))} */}
+            {[
+              { id: "projects", label: "Projects" },
+              { id: "skills", label: "Skills" },
+              { id: "about", label: "About" },
+              { id: "contact", label: "Contact" },
+            ].map((link) => {
+              const isActive = active === (link.id as typeof active);
+              return (
+                <Button
+                  key={link.id}
+                  asChild
+                  size="sm"
+                  variant={isActive ? "outlineUnderline" : "outline"}
+                  className="rounded-full"
+                >
+                  <a
+                    href={`#${link.id}`}
+                    onClick={() => setActive(link.id as typeof active)}
+                    aria-current={isActive ? "page" : undefined}
+                  >
+                    {link.label}
+                  </a>
+                </Button>
+              );
+            })}
+            {/* <a href={INFO.resumeUrl} className="ml-2"> */}
+              <a
+              href={INFO.resumeUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="ml-2"
+            >
+              <Button className="rounded-2xl shadow-sm animate-bounce"
+              style={{ animationDuration: "2s" }}>
                 <Download className="h-4 w-4 mr-2" />
                 Resume
               </Button>

@@ -1,0 +1,4 @@
+TODO:
+# slow slide when jumping to sections - Done
+# resume open in a new tab
+# download resume icon or not?
