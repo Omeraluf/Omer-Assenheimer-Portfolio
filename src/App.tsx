@@ -14,15 +14,14 @@ import { Card, CardHeader, CardTitle, CardContent } from "./components/ui/card";
 
 // —— QUICK EDIT AREA ——
 const INFO = {
-  name: "Omer Assenheimer",
-  role: "Software Engineer • Data-Oriented",
+  name: "Software Engineer • Data-Oriented",
+  role: "Omer Assenheimer",
   location: "Israel",
   email: "Omeraluf@gmail.com",
   phone: "054-2105916",
-  linkedin:
-    "https://www.linkedin.com/in/omer-assenheimer",
+  linkedin: "https://www.linkedin.com/in/omer-assenheimer",
   github: "https://github.com/omeraluf",
-  resumeUrl: "#", // paste resume link (Drive/Vercel static) here
+  resumeUrl: "/Omer-Assenheimer-Resume.pdf", // paste resume link (Drive/Vercel static) here
 };
 
 type Project = {
@@ -43,7 +42,7 @@ const PROJECTS: Project[] = [
     repo: "https://github.com/Omeraluf/israeli-media-monitor",
   },
   {
-    title: "IoT Building Safety Monitor",
+    title: "Building Stability Tracker", //"IoT Building Safety Monitor",
     blurb:
       "Real-time sensor ingestion, anomaly alerts, and dashboards for building risk.",
     tech: ["Python", "FastAPI", "MongoDB", "WebSockets", "Grafana"],
@@ -80,11 +79,11 @@ const SKILLS = [
 
 export default function App() {
   const [active, setActive] = useState<"projects" | "skills" | "about" | "contact">("projects");
-
+// keep from HERE!@#!@#!
   return (
     <main className="min-h-screen bg-neutral-50 text-neutral-900">
       {/* Header */}
-      <header className="sticky top-0 z-50 backdrop-blur bg-white/70 border-b border-neutral-200">
+      <header className="sticky top-0 z-50 backdrop-blur bg-white/70 border-b border-neutral-200">                      
         <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
           <a href="#hero" className="font-semibold tracking-tight text-lg">
             {INFO.name}
@@ -125,18 +124,18 @@ export default function App() {
           <div className="md:col-span-2">
             <h1 className="text-4xl md:text-5xl font-bold tracking-tight">{INFO.role}</h1>
             <p className="mt-4 text-neutral-700 leading-relaxed">
-              I build clean, fast, and type-safe web apps and data products — from Python backends and
-              ML pipelines to React/Next.js frontends with great UX.
+              {/* I build clean, efficient, and reliable software with a focus on clear logic, good structure, and meaningful user impact. */}
+              I’ve loved computers since I was a kid — now I turn that passion into writing clean, reliable software built on clear logic and purpose.
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-3">
               <a href={`mailto:${INFO.email}`}>
-                <Button variant="secondary" className="rounded-2xl">
+                <Button variant="outline" className="rounded-2xl">
                   <Mail className="h-4 w-4 mr-2" />
                   Email
                 </Button>
               </a>
               <a href={INFO.linkedin} target="_blank" rel="noreferrer">
-                <Button className="rounded-2xl">
+                <Button variant="outline" className="rounded-2xl">
                   <Linkedin className="h-4 w-4 mr-2" />
                   LinkedIn
                 </Button>
