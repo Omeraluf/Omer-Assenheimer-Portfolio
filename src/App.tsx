@@ -21,7 +21,7 @@ const INFO = {
   phone: "054-2105916",
   linkedin: "https://www.linkedin.com/in/omer-assenheimer",
   github: "https://github.com/omeraluf",
-  resumeUrl: "/Omer-Assenheimer-Resume.pdf", // paste resume link (Drive/Vercel static) here
+  resumeUrl: "/Omer-Assenheimer-CV-Software-Engineer-2025.pdf", // paste resume link (Drive/Vercel static) here
 };
 
 type Project = {
