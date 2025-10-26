@@ -63,7 +63,7 @@ const PROJECTS: Project[] = [
 const SKILLS = [
   { group: "Frontend", items: ["React", "Next.js", "TypeScript", "Tailwind", "Shadcn UI"] },
   { group: "Backend", items: ["FastAPI", "Node", "REST", "WebSockets", "Auth"] },
-  { group: "Data", items: ["Pandas", "scikit-learn", "TensorFlow", "PyTorch", "Matplotlib", "SQL", "MongoDB", "ETL", "SpaCy", "NLTK", "Seaborn"] },
+  { group: "Data", items: ["Pandas", "scikit-learn", "TensorFlow", "SQL", "Seaborn", "ETL", "MongoDB"] },
   { group: "DevOps", items: ["Git", "Docker", "CI/CD", "Vercel"] }
 ];
 
