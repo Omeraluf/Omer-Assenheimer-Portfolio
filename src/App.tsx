@@ -63,7 +63,7 @@ const PROJECTS: Project[] = [
 const SKILLS = [
   { group: "Frontend", items: ["React", "Next.js", "TypeScript", "Tailwind", "Shadcn UI"] },
   { group: "Backend", items: ["FastAPI", "Node", "REST", "WebSockets", "Auth"] },
-  { group: "Data", items: ["Pandas", "scikit-learn", "TensorFlow", "PyTorch", "Matplotlib", "SQL", "MongoDB", "ETL", "SpaCy", "NLTK", "Seaborn"] },
+  { group: "Data", items: ["Pandas", "scikit-learn", "PyTorch", "SQL", "ETL", "Matplotlib"] },
   { group: "DevOps", items: ["Git", "Docker", "CI/CD", "Vercel"] }
 ];
 
@@ -330,7 +330,7 @@ export default function App() {
             <a href={`mailto:${INFO.email}`}>
               <Button variant="outline"className="rounded-2xl">
                 <Mail className="h-4 w-4 mr-2" />
-                Email me
+                Email
               </Button>
             </a>
             <a href={INFO.linkedin} target="_blank" rel="noreferrer">
