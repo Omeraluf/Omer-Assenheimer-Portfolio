@@ -63,7 +63,7 @@ const PROJECTS: Project[] = [
 const SKILLS = [
   { group: "Frontend", items: ["React", "Next.js", "TypeScript", "Tailwind", "Shadcn UI"] },
   { group: "Backend", items: ["FastAPI", "Node", "REST", "WebSockets", "Auth"] },
-  { group: "Data", items: ["Pandas", "scikit-learn", "PyTorch", "SQL", "ETL", "Matplotlib"] },
+  { group: "Data", items: ["Pandas", "scikit-learn", "TensorFlow", "PyTorch", "Matplotlib", "SQL", "MongoDB", "ETL", "SpaCy", "NLTK", "Seaborn"] },
   { group: "DevOps", items: ["Git", "Docker", "CI/CD", "Vercel"] }
 ];
 
@@ -93,31 +93,41 @@ export default function App() {
   }, []);
 
   // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Spy Scroll START @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-  // Simplest scroll-spy: pick the section closest to 30% from top
   useEffect(() => {
-    const ids = ["hero", "projects", "skills", "about", "contact"];
-    const sections = ids
-      .map((id) => document.getElementById(id))
-      .filter(Boolean) as HTMLElement[];
+  const sections = Array.from(document.querySelectorAll<HTMLElement>("section[id]"));
+  if (!sections.length) return;
 
-    const onScroll = () => {
-      const targetY = window.innerHeight * 0.2; // detection line
-      let best: { id: typeof active; dist: number } | null = null;
+  // How much of the viewport counts as "active zone":
+  // top 30% to bottom 40% (tweak if you like)
+  const observer = new IntersectionObserver(
+    (entries) => {
+      // Pick the most visible entry that’s intersecting
+      const visible = entries
+        .filter((e) => e.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
 
-      sections.forEach((sec) => {
-        const { top } = sec.getBoundingClientRect();
-        const dist = Math.abs(top - targetY);
-        if (!best || dist < best.dist) best = { id: sec.id, dist };
-      });
+      if (visible?.target?.id) {
+        setActive(visible.target.id as typeof active);
+      }
 
-      if (best) setActive(best.id as typeof active);
-    };
+      // Bottom-of-page fallback: ensure the last section highlights when you hit the end
+      const atBottom =
+        window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+      if (atBottom && sections.length) {
+        setActive(sections[sections.length - 1].id as typeof active);
+      }
+    },
+    {
+      // Shrink the root so a section becomes "active" when it’s in the central band
+      root: null,
+      rootMargin: "-20% 0px -60% 0px",
+      threshold: [0.05, 0.2, 0.4, 0.6, 0.8], // multiple thresholds for smoother updates
+    }
+  );
 
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll(); // init
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
+  sections.forEach((s) => observer.observe(s));
+  return () => observer.disconnect();
+}, []);
 
   // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Spy Scroll END @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
@@ -330,7 +340,7 @@ export default function App() {
             <a href={`mailto:${INFO.email}`}>
               <Button variant="outline"className="rounded-2xl">
                 <Mail className="h-4 w-4 mr-2" />
-                Email
+                Email me
               </Button>
             </a>
             <a href={INFO.linkedin} target="_blank" rel="noreferrer">
