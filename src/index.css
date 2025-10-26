@@ -10,4 +10,11 @@
   .glass { @apply bg-white/70 backdrop-blur-md border border-gray-200; }
 }
 
+:root {
+  --nav-height: 3.5rem; /* fallback */
+}
+
+section {
+  scroll-margin-top: var(--nav-height);
+}
 

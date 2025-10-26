@@ -1,21 +1,14 @@
 // src/App.tsx
 import { useState } from "react";
-import {
-  Github,
-  ExternalLink,
-  Mail,
-  Linkedin,
-  Phone,
-  Download,
-  MapPin,
-} from "lucide-react";
+import { Github, ExternalLink, Mail, Linkedin, Phone, Download, MapPin, ArrowUp} from "lucide-react";
 import { Button } from "./components/ui/button";
 import { Card, CardHeader, CardTitle, CardContent } from "./components/ui/card";
+import { useEffect } from "react";
 
 // —— QUICK EDIT AREA ——
 const INFO = {
-  name: "Software Engineer • Data-Oriented",
-  role: "Omer Assenheimer",
+  name: "Omer Assenheimer",
+  role: "Software Engineer • Data-Oriented",
   location: "Israel",
   email: "Omeraluf@gmail.com",
   phone: "054-2105916",
@@ -78,8 +71,73 @@ const SKILLS = [
 
 
 export default function App() {
-  const [active, setActive] = useState<"projects" | "skills" | "about" | "contact">("projects");
-// keep from HERE!@#!@#!
+  const [active, setActive] = useState<"hero" | "projects" | "skills" | "about" | "contact">("projects");
+  useEffect(() => {
+    const header = document.querySelector("header");
+    if (!header) return;
+
+    // Function to update the CSS variable
+    const setHeight = () => {
+      document.documentElement.style.setProperty("--nav-height", `${header.offsetHeight}px`);
+    };
+
+    // Set immediately
+    setHeight();
+
+    // Watch for changes (responsive resize etc.)
+    const resizeObserver = new ResizeObserver(setHeight);
+    resizeObserver.observe(header);
+
+    // Cleanup
+    return () => resizeObserver.disconnect();
+  }, []);
+
+  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Spy Scroll START @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  // Simplest scroll-spy: pick the section closest to 30% from top
+  useEffect(() => {
+    const ids = ["hero", "projects", "skills", "about", "contact"];
+    const sections = ids
+      .map((id) => document.getElementById(id))
+      .filter(Boolean) as HTMLElement[];
+
+    const onScroll = () => {
+      const targetY = window.innerHeight * 0.2; // detection line
+      let best: { id: typeof active; dist: number } | null = null;
+
+      sections.forEach((sec) => {
+        const { top } = sec.getBoundingClientRect();
+        const dist = Math.abs(top - targetY);
+        if (!best || dist < best.dist) best = { id: sec.id, dist };
+      });
+
+      if (best) setActive(best.id as typeof active);
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll(); // init
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+
+  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Spy Scroll END @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+    // Back-to-top button visibility logic START
+  const [showTop, setShowTop] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setShowTop(window.scrollY > 50);
+    onScroll(); // set initial state
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const scrollTop = () => {
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, behavior: prefersReduced ? "auto" : "smooth" });
+  };
+  // Back-to-top button logic END
+
+
   return (
     <main className="min-h-screen bg-neutral-50 text-neutral-900">
       {/* Header */}
@@ -89,26 +147,9 @@ export default function App() {
             {INFO.name}
           </a>
           <nav className="flex items-center gap-2 text-sm">
-            {/* {[
-              { id: "projects", label: "Projects" },
-              { id: "skills", label: "Skills" },
-              { id: "about", label: "About" },
-              { id: "contact", label: "Contact" },
-            ].map((link) => (
-              <a
-                key={link.id}
-                href={`#${link.id}`}
-                onClick={() => setActive(link.id as typeof active)}
-                className={`px-3 py-1.5 rounded-full transition-all ${
-                  active === (link.id as typeof active)
-                    ? "bg-neutral-900 text-white"
-                    : "hover:bg-neutral-100"
-                }`}
-              >
-                {link.label}
-              </a>
-            ))} */}
             {[
+              // button links
+              { id: "hero", label: "Home" },
               { id: "projects", label: "Projects" },
               { id: "skills", label: "Skills" },
               { id: "about", label: "About" },
@@ -151,13 +192,13 @@ export default function App() {
       </header>
 
       {/* Hero */}
-      <section id="hero" className="max-w-6xl mx-auto px-4 pt-12 pb-8">
+      <section id="hero" className="max-w-6xl mx-auto px-4 pt-12 pb-8 scroll-mt-[var(--nav-height)]">
         <div className="grid md:grid-cols-3 gap-6 items-center">
           <div className="md:col-span-2">
             <h1 className="text-4xl md:text-5xl font-bold tracking-tight">{INFO.role}</h1>
             <p className="mt-4 text-neutral-700 leading-relaxed">
               {/* I build clean, efficient, and reliable software with a focus on clear logic, good structure, and meaningful user impact. */}
-              I’ve loved computers since I was a kid — now I turn that passion into writing clean, reliable software built on clear logic and purpose.
+              I've loved computers since I was a kid - now I turn that passion into writing clean, reliable software built on clear logic and purpose.
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-3">
               <a href={`mailto:${INFO.email}`}>
@@ -205,7 +246,7 @@ export default function App() {
       </section>
 
       {/* Projects */}
-      <section id="projects" className="max-w-6xl mx-auto px-4 py-10">
+       <section id="projects" className="max-w-6xl mx-auto px-4 py-10 scroll-mt-[var(--nav-height)]">            {/* scroll-mt-16  */}
         <h2 className="text-2xl font-semibold tracking-tight mb-6">Featured Projects</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {PROJECTS.map((p, i) => (
@@ -246,7 +287,7 @@ export default function App() {
       </section>
 
       {/* Skills */}
-      <section id="skills" className="max-w-6xl mx-auto px-4 py-10">
+      <section id="skills" className="max-w-6xl mx-auto px-4 py-10 scroll-mt-[var(--nav-height)]">
         <h2 className="text-2xl font-semibold tracking-tight mb-6">Skills</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {SKILLS.map((s) => (
@@ -267,31 +308,33 @@ export default function App() {
       </section>
 
       {/* About */}
-      <section id="about" className="max-w-6xl mx-auto px-4 py-10">
+      <section id="about" className="max-w-6xl mx-auto px-4 py-10 scroll-mt-[var(--nav-height)]">
         <h2 className="text-2xl font-semibold tracking-tight mb-4">About</h2>
         <p className="text-neutral-700 max-w-3xl leading-relaxed">
-          Data-oriented software engineer with a knack for turning raw data into useful products.
-          Comfortable across the stack: Python backends, ML pipelines, and modern React/Next.js frontends.
-          I value clean abstractions, great DX, and shipping fast without breaking trust.
+          Full-stack & data-oriented software engineer with experience building scalable backends,
+           intelligent data pipelines, and modern React frontends.
+            Skilled in Python, TypeScript, and experienced with C++, Java, and C#.
+             Passionate about transforming data into impactful software products while maintaining clean architecture,
+              great developer experience, and a balance between speed, quality, and trust.
         </p>
       </section>
 
       {/* Contact */}
-      <section id="contact" className="max-w-6xl mx-auto px-4 py-12">
+      <section id="contact" className="max-w-6xl mx-auto px-4 py-12 scroll-mt-[var(--nav-height)]">
         <div className="rounded-3xl p-6 border bg-white shadow-sm">
           <h2 className="text-2xl font-semibold tracking-tight mb-2">Let’s talk</h2>
           <p className="text-neutral-700 mb-4">
-            Open to full-time or freelance roles. Best way to reach me: email or LinkedIn.
+            Open to full-time or freelance roles. Best way to reach me: Email, LinkedIn and Whatsapp.
           </p>
           <div className="flex flex-wrap gap-3">
             <a href={`mailto:${INFO.email}`}>
-              <Button className="rounded-2xl">
+              <Button variant="outline"className="rounded-2xl">
                 <Mail className="h-4 w-4 mr-2" />
                 Email me
               </Button>
             </a>
             <a href={INFO.linkedin} target="_blank" rel="noreferrer">
-              <Button variant="secondary" className="rounded-2xl">
+              <Button variant="outline" className="rounded-2xl">
                 <Linkedin className="h-4 w-4 mr-2" />
                 Connect
               </Button>
@@ -305,9 +348,25 @@ export default function App() {
           </div>
         </div>
         <footer className="text-center text-sm text-neutral-500 py-8">
-          © {new Date().getFullYear()} {INFO.name}
+          © {new Date().getFullYear()} • {INFO.name} • {INFO.role}
         </footer>
       </section>
+
+      {/* Back to top floating button */}
+      <button
+        type="button"
+        onClick={scrollTop}
+        aria-label="Back to top"
+        className={[
+          "fixed bottom-6 right-6 z-[60]",
+          "rounded-full border bg-white/80 backdrop-blur shadow-md",
+          "p-3 hover:bg-white transition-all",
+          showTop ? "opacity-100 pointer-events-auto translate-y-0" : "opacity-0 pointer-events-none translate-y-2"
+        ].join(" ")}
+      >
+        <ArrowUp className="h-5 w-5" />
+      </button>
+
     </main>
   );
 }
