@@ -191,7 +191,7 @@ export default function App() {
               rel="noreferrer"
               className="ml-2"
             >
-              <Button className="rounded-2xl shadow-sm animate-bounce"
+              <Button className="rounded-2xl shadow-sm"                                  //animate-bounce
               style={{ animationDuration: "2s" }}>
                 <Download className="h-4 w-4 mr-2" />
                 Resume
@@ -209,6 +209,8 @@ export default function App() {
             <p className="mt-4 text-neutral-700 leading-relaxed">
               {/* I build clean, efficient, and reliable software with a focus on clear logic, good structure, and meaningful user impact. */}
               I've loved computers since I was a kid - now I turn that passion into writing clean, reliable software built on clear logic and purpose.
+              With an open mind and ambition to tackle challenges, I thrive as a
+              team player and seek to add value beyond my expertise
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-3">
               <a href={`mailto:${INFO.email}`}>
@@ -234,7 +236,7 @@ export default function App() {
           <div className="md:ml-auto">
             <Card className="rounded-2xl shadow-sm">
               <CardHeader>
-                <CardTitle className="text-base">Quick Facts</CardTitle>
+                <CardTitle className="text-base">Details</CardTitle>
               </CardHeader>
               <CardContent className="text-sm space-y-2">
                 <p className="flex items-center gap-2">
@@ -332,10 +334,10 @@ export default function App() {
       {/* Contact */}
       <section id="contact" className="max-w-6xl mx-auto px-4 py-12 scroll-mt-[var(--nav-height)]">
         <div className="rounded-3xl p-6 border bg-white shadow-sm">
-          <h2 className="text-2xl font-semibold tracking-tight mb-2">Let’s talk</h2>
-          <p className="text-neutral-700 mb-4">
+          <h2 className="text-2xl font-semibold tracking-tight mb-2">Let's talk</h2>
+          {/* <p className="text-neutral-700 mb-4">
             Open to full-time or freelance roles. Best way to reach me: Email, LinkedIn and Whatsapp.
-          </p>
+          </p> */}
           <div className="flex flex-wrap gap-3">
             <a href={`mailto:${INFO.email}`}>
               <Button variant="outline"className="rounded-2xl">

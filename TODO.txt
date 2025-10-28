@@ -1,4 +1,15 @@
 TODO:
 # slow slide when jumping to sections - Done
 # resume open in a new tab
-# download resume icon or not?
+# download resume icon or not
+# fix the code into different sections
+# maybe add sql base?
+# Vitest
+# add bsc
+# dismiss the #skills, #project etc - at the url
+# same sizes of project cards
+# live and code with space between the hashtags
+# featured projects move it upwards
+# change the about - add AI collaboration
+# opening sentence - change for what eden sent me
+# \n in the software engineer * \n data oriented
