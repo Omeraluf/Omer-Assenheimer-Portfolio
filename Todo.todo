@@ -321,6 +321,28 @@
           "done": false,
           "start": 1761819497411
         }
+      },
+      {
+        "key": 1761828784805,
+        "children": [],
+        "todo": {
+          "content": "להתאים לטלפון",
+          "id": 1761828784805,
+          "level": "default",
+          "done": false,
+          "start": 1761828784805
+        }
+      },
+      {
+        "key": 1761829457851,
+        "children": [],
+        "todo": {
+          "content": "dim light when on preview",
+          "id": 1761829457851,
+          "level": "default",
+          "done": false,
+          "start": 1761829457851
+        }
       }
     ],
     "expandKeys": [
@@ -340,6 +362,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "en",
-    "version": "1761819507807"
+    "version": "1761829466166"
   }
 }

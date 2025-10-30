@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Copy, Check, Mail } from "lucide-react";
+import { Check, Mail } from "lucide-react";
 import { Button } from "./button";
 
 export function EmailButton({ email }: { email: string }) {

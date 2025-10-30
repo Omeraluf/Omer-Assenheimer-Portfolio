@@ -1,5 +1,5 @@
 // src/components/ui/PreviewButton.tsx
-import React, { useRef, useCallback } from "react";
+import { useRef, useCallback } from "react";
 import { Button } from "./button";
 import type { Props as ButtonProps } from "./button";
 

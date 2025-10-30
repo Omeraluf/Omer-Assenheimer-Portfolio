@@ -1,11 +1,11 @@
 // src/App.tsx
 import logo from "/android-chrome-512x512.png";
 import { useEffect } from "react";
-import { Github, ExternalLink, Mail, Linkedin, Phone, MapPin, ArrowUp, ExternalLinkIcon, GraduationCap, Play} from "lucide-react";
+import { Github, Mail, Linkedin, Phone, MapPin, ArrowUp, ExternalLinkIcon, GraduationCap, Eye} from "lucide-react";
 import { useState } from "react";
 import { Button } from "./components/ui/button";
 import { EmailButton } from "./components/ui/EmailButton";
-import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "./components/ui/card";
+import { Card, CardHeader, CardTitle, CardContent } from "./components/ui/card";
 import { useSmoothScroll } from "./hooks/useSmoothScroll";
 import PreviewButton from "./components/ui/PreviewButton";
 
@@ -339,7 +339,7 @@ export default function App() {
                 <div className="mt-auto flex gap-2 pt-4">
                   {/* <a href={p.live} target="_blank" rel="noreferrer"> */}
                     {/* <Button size="sm" className="rounded-xl " variant="default"> */}
-                      {/* <ExternalLink className="h-4 w-4 mr-1"  /> */}
+                      
                       {/* <PreviewButton src="/previews/DeepFake Detector.mp4" /> */}
                       {/* <PreviewButton
                         src="/previews/DeepFake Detector.mp4"
@@ -354,7 +354,9 @@ export default function App() {
                         variant="default"
                         videoSrc={p.videoSrc}
                         popPlacement="top"
+                        className = "rounded-xl size-sm"
                       >
+                        <Eye className="h-4 w-4 mr-2"  />
                         Preview
                       </PreviewButton>
                     </div>
