@@ -85,3 +85,6 @@ Copy code
 ---
 
 You can save that directly as `TAILWIND_V4_SETUP.md` in your project root — it’ll serve as your quick reference anytime you start a new one.
+
+# prompt for adding projects:
+I want to add a new project to my portfolio in the same format as my previous ones. Here’s what I’ll give you: The project name A short description of what it does The main technologies used I want you to: Create a noun-based title (like “Risk Monitor” / “Data Predictor” / “E-Commerce Platform”). Write a one-line blurb starting with “A …” that clearly explains what the project is and what it does — short, accessible, and professional. Return the final result as a TypeScript object matching this exact structure: { title: "Project Title", blurb: "A concise, noun-based sentence explaining the project.", tech: ["Tech1", "Tech2", "Tech3"], live: "#", repo: "#", }, Keep the tone consistent with my previous projects like: Israeli News Monitor Structural Risk Monitor School Risk Predictor Job Listings Scraper Wizard E-Commerce Platform now i'll show you my next project i want to work on

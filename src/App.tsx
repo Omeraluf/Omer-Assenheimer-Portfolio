@@ -1,20 +1,27 @@
 // src/App.tsx
-import { useState } from "react";
-import { Github, ExternalLink, Mail, Linkedin, Phone, Download, MapPin, ArrowUp} from "lucide-react";
-import { Button } from "./components/ui/button";
-import { Card, CardHeader, CardTitle, CardContent } from "./components/ui/card";
+import logo from "/android-chrome-512x512.png";
 import { useEffect } from "react";
+import { Github, ExternalLink, Mail, Linkedin, Phone, MapPin, ArrowUp, ExternalLinkIcon, GraduationCap, Play} from "lucide-react";
+import { useState } from "react";
+import { Button } from "./components/ui/button";
+import { EmailButton } from "./components/ui/EmailButton";
+import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "./components/ui/card";
+import { useSmoothScroll } from "./hooks/useSmoothScroll";
+import PreviewButton from "./components/ui/PreviewButton";
+
+
+
 
 // —— QUICK EDIT AREA ——
 const INFO = {
   name: "Omer Assenheimer",
-  role: "Software Engineer • Data-Oriented",
+  role: "Software Engineer Data-Oriented",
   location: "Israel",
   email: "Omeraluf@gmail.com",
   phone: "054-2105916",
   linkedin: "https://www.linkedin.com/in/omer-assenheimer",
   github: "https://github.com/omeraluf",
-  resumeUrl: "/Omer-Assenheimer-CV-Software-Engineer-2025.pdf", // paste resume link (Drive/Vercel static) here
+  resumeUrl: "/Omer-Assenheimer-CV-Software-Engineer-2025.pdf",
 };
 
 type Project = {
@@ -23,40 +30,62 @@ type Project = {
   tech: string[];
   live: string;
   repo: string;
+  videoSrc: string;
 };
 
 const PROJECTS: Project[] = [
   {
-    title: "Israeli Media Monitor",
+    title: "Israeli News Monitor",
     blurb:
-      "Scrapes Israeli outlets (RSS/Selenium), clusters coverage, and visualizes trends.",
+      "A platform that analyzes Israeli news articles to reveal cross-outlet trends.",
     tech: ["Python", "Pandas", "NLP", "Sentiment Analysis", "Data Processing", "Web Scraping"],
     live: "#",
     repo: "https://github.com/Omeraluf/israeli-media-monitor",
+    videoSrc: "",
   },
   {
-    title: "Building Stability Tracker", //"IoT Building Safety Monitor",
+  title: "DeepFake Detector",
+  blurb: "An AI-powered web application that detects manipulated videos and images using deep learning models built with TensorFlow and PyTorch.",
+  tech: ["Python", "Streamlit", "TensorFlow", "Keras", "PyTorch", "OpenCV"],
+  live: "#",
+  repo: "https://github.com/omeraluf",
+  videoSrc: "/previews/DeepFake Detector.mp4",
+  },
+  {
+    title: "Structural Risk Monitor", //"IoT Building Safety Monitor", Building Stability Tracker
     blurb:
-      "Real-time sensor ingestion, anomaly alerts, and dashboards for building risk.",
+      "A monitoring system for detecting structural risks from real-time sensor data.",
     tech: ["Python", "FastAPI", "MongoDB", "WebSockets", "Grafana"],
     live: "#",
-    repo: "#",
-  },
-  {
-    title: "School Safety Risk Prediction",
-    blurb:
-      "ML classification on Kaggle dataset to surface risk patterns and signals.",
-    tech: ["Pandas", "scikit-learn", "XGBoost", "Matplotlib"],
-    live: "https://drive.google.com/drive/folders/1tEmx-MxRnJQODJ4_HkSGVskL3Y8UyFXA?usp=sharing",
-    repo: "https://github.com/Omeraluf/School-Saftey-Risk-Prediction",
+    repo: "https://github.com/omeraluf",
+    videoSrc: "",
   },
   {
     title: "Job Listings Scraper",
     blurb:
-      "Python scraper that collects and filters remote job listings into structured data.",
+      "A tool that collects remote job listings and organizes them into structured data.",
     tech: ["Python", "BeautifulSoup", "Requests", "Pandas"],
     live: "#",
     repo: "https://github.com/Omeraluf/Remote-jobs-scraper",
+    videoSrc: "",
+  },
+  {
+  title: "Wizard E-Commerce Platform",
+  blurb:
+    "A 'Harry Potter'-themed E-commerce website for browsing magical items, managing a cart, and completing purchases.",
+  tech: ["C#", "ASP.NET Core MVC", "Razor", "SQL Server", "HTML", "CSS", "JavaScript"],
+  live: "#",
+  repo: "https://github.com/omeraluf",
+  videoSrc: "",
+  },
+  {
+    title: "School Risk Predictor",
+    blurb:
+      "A predictive model that identifies school safety risk factors using ML.",
+    tech: ["Pandas", "scikit-learn", "XGBoost", "Matplotlib", "Kaggle"],
+    live: "https://drive.google.com/drive/folders/1tEmx-MxRnJQODJ4_HkSGVskL3Y8UyFXA?usp=sharing",
+    repo: "https://github.com/Omeraluf/School-Saftey-Risk-Prediction",
+    videoSrc: "",
   },
 ];
 
@@ -72,6 +101,8 @@ const SKILLS = [
 
 export default function App() {
   const [active, setActive] = useState<"hero" | "projects" | "skills" | "about" | "contact">("projects");
+  const scrollTo = useSmoothScroll();
+
   useEffect(() => {
     const header = document.querySelector("header");
     if (!header) return;
@@ -153,12 +184,18 @@ export default function App() {
       {/* Header */}
       <header className="sticky top-0 z-50 backdrop-blur bg-white/70 border-b border-neutral-200">                      
         <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-          <a href="#hero" className="font-semibold tracking-tight text-lg">
-            {INFO.name}
-          </a>
+          <button
+          onClick={() => {
+            scrollTo("hero");       // smooth scroll
+            setActive("hero");      // update active highlight
+          }}
+          className="font-semibold tracking-tight text-lg flex items-center gap-3"
+        >
+            <img src={logo} alt="OA Logo" className="h-8 w-8" />
+            <span>{INFO.name}</span>
+          </button>
           <nav className="flex items-center gap-2 text-sm">
             {[
-              // button links
               { id: "hero", label: "Home" },
               { id: "projects", label: "Projects" },
               { id: "skills", label: "Skills" },
@@ -169,21 +206,19 @@ export default function App() {
               return (
                 <Button
                   key={link.id}
-                  asChild
                   size="sm"
-                  variant={isActive ? "outlineUnderline" : "outline"}
+                  variant={isActive ? "primaryBlue" : "outline"}
                   className="rounded-full"
+                  onClick={() => {
+                    scrollTo(link.id);                // 👈 smooth scroll instead of href
+                    setActive(link.id as typeof active);
+                  }}
                 >
-                  <a
-                    href={`#${link.id}`}
-                    onClick={() => setActive(link.id as typeof active)}
-                    aria-current={isActive ? "page" : undefined}
-                  >
-                    {link.label}
-                  </a>
+                  {link.label}
                 </Button>
               );
             })}
+
             {/* <a href={INFO.resumeUrl} className="ml-2"> */}
               <a
               href={INFO.resumeUrl}
@@ -193,7 +228,7 @@ export default function App() {
             >
               <Button className="rounded-2xl shadow-sm"                                  //animate-bounce
               style={{ animationDuration: "2s" }}>
-                <Download className="h-4 w-4 mr-2" />
+                <ExternalLinkIcon className="h-4 w-4 mr-2" />
                 Resume
               </Button>
             </a>
@@ -205,19 +240,19 @@ export default function App() {
       <section id="hero" className="max-w-6xl mx-auto px-4 pt-12 pb-8 scroll-mt-[var(--nav-height)]">
         <div className="grid md:grid-cols-3 gap-6 items-center">
           <div className="md:col-span-2">
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight">{INFO.role}</h1>
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight max-w-md ">{INFO.role}</h1>
+            {/* <p className="text-neutral-600 text-sm md:text-base mt-1">
+              B.Sc. in Software Engineering
+            </p> */}
+
             <p className="mt-4 text-neutral-700 leading-relaxed">
               {/* I build clean, efficient, and reliable software with a focus on clear logic, good structure, and meaningful user impact. */}
-              I've loved computers since I was a kid - now I turn that passion into writing clean, reliable software built on clear logic and purpose.
               With an open mind and ambition to tackle challenges, I thrive as a
-              team player and seek to add value beyond my expertise
+              team player and strive to bring curiosity and creativity to every challenge.
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-3">
               <a href={`mailto:${INFO.email}`}>
-                <Button variant="outline" className="rounded-2xl">
-                  <Mail className="h-4 w-4 mr-2" />
-                  Email
-                </Button>
+                <EmailButton email={INFO.email} />
               </a>
               <a href={INFO.linkedin} target="_blank" rel="noreferrer">
                 <Button variant="outline" className="rounded-2xl">
@@ -247,10 +282,21 @@ export default function App() {
                   <Phone className="h-4 w-4" />
                   {INFO.phone}
                 </p>
+
                 <p className="flex items-center gap-2">
                   <Mail className="h-4 w-4" />
                   {INFO.email}
                 </p>
+
+                <p className="flex items-center gap-2">
+                  <GraduationCap className="h-4 w-4" />
+                  {"BSc Software Engineering"}
+                </p>
+
+                {/* <p className="flex items-center gap-2>
+                  <BookOpen className="h-4 w-4 inline-block mr-2" />
+                  {B.Sc. Software Engineering}
+                </p> */}
               </CardContent>
             </Card>
           </div>
@@ -258,17 +304,28 @@ export default function App() {
       </section>
 
       {/* Projects */}
-       <section id="projects" className="max-w-6xl mx-auto px-4 py-10 scroll-mt-[var(--nav-height)]">            {/* scroll-mt-16  */}
-        <h2 className="text-2xl font-semibold tracking-tight mb-6">Featured Projects</h2>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+       <section
+        id="projects"
+        className="max-w-6xl mx-auto px- py-2 scroll-mt-[var(--nav-height)]">
+        <h2 className="text-2xl font-semibold tracking-tight mb-6">
+          {/* text-[#3588db] */}
+          Featured Projects
+        </h2>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 items-stretch">
           {PROJECTS.map((p, i) => (
-            <Card key={i} className="rounded-2xl hover:shadow-md transition-shadow">
+            <Card
+              key={i}
+              className="rounded-2xl hover:shadow-md transition-shadow flex flex-col h-full"
+            >
               <CardHeader>
                 <CardTitle className="text-lg">{p.title}</CardTitle>
               </CardHeader>
-              <CardContent>
+
+              <CardContent className="flex flex-col flex-grow">
                 <p className="text-sm text-neutral-700 mb-3">{p.blurb}</p>
-                <ul className="flex flex-wrap gap-2 mb-4">
+
+                <ul className="flex flex-wrap gap-2 mb-auto">
                   {p.tech.map((t) => (
                     <li
                       key={t}
@@ -278,13 +335,31 @@ export default function App() {
                     </li>
                   ))}
                 </ul>
-                <div className="flex items-center gap-2">
-                  <a href={p.live} target="_blank" rel="noreferrer">
-                    <Button size="sm" className="rounded-xl">
-                      <ExternalLink className="h-4 w-4 mr-1" />
-                      Live
-                    </Button>
-                  </a>
+
+                <div className="mt-auto flex gap-2 pt-4">
+                  {/* <a href={p.live} target="_blank" rel="noreferrer"> */}
+                    {/* <Button size="sm" className="rounded-xl " variant="default"> */}
+                      {/* <ExternalLink className="h-4 w-4 mr-1"  /> */}
+                      {/* <PreviewButton src="/previews/DeepFake Detector.mp4" /> */}
+                      {/* <PreviewButton
+                        src="/previews/DeepFake Detector.mp4"
+                        poster="/previews/DeepFake Detector.jpg"
+                        label="Preview"
+                        
+                      /> */}
+                      {/* Preview */}
+                    {/* </Button> */}
+                    <div>
+                      <PreviewButton
+                        variant="default"
+                        videoSrc={p.videoSrc}
+                        popPlacement="top"
+                      >
+                        Preview
+                      </PreviewButton>
+                    </div>
+
+                  {/* </a> */}
                   <a href={p.repo} target="_blank" rel="noreferrer">
                     <Button size="sm" variant="outline" className="rounded-xl">
                       <Github className="h-4 w-4 mr-1" />
@@ -298,6 +373,7 @@ export default function App() {
         </div>
       </section>
 
+
       {/* Skills */}
       <section id="skills" className="max-w-6xl mx-auto px-4 py-10 scroll-mt-[var(--nav-height)]">
         <h2 className="text-2xl font-semibold tracking-tight mb-6">Skills</h2>
@@ -310,7 +386,9 @@ export default function App() {
               <CardContent>
                 <ul className="text-sm text-neutral-700 space-y-1">
                   {s.items.map((i) => (
-                    <li key={i}>• {i}</li>
+                    <li key={i}
+                    className="text-xs bg-neutral-100 rounded-full px-2.5 py-1 inline-block mb-1">
+                      {i}</li>
                   ))}
                 </ul>
               </CardContent>
@@ -323,11 +401,11 @@ export default function App() {
       <section id="about" className="max-w-6xl mx-auto px-4 py-10 scroll-mt-[var(--nav-height)]">
         <h2 className="text-2xl font-semibold tracking-tight mb-4">About</h2>
         <p className="text-neutral-700 max-w-3xl leading-relaxed">
-          Full-stack & data-oriented software engineer with experience building scalable backends,
-           intelligent data pipelines, and modern React frontends.
-            Skilled in Python, TypeScript, and experienced with C++, Java, and C#.
-             Passionate about transforming data into impactful software products while maintaining clean architecture,
-              great developer experience, and a balance between speed, quality, and trust.
+          Full-stack and data-oriented software engineer experienced in building scalable backends,
+           intelligent data pipelines, and modern React frontends. Skilled in Python, C++, C, Java,
+            and C#. Passionate about bridging data engineering and artificial intelligence to create
+             software that learns, adapts, and delivers real-world results while maintaining clean
+              architecture and a strong focus on performance, scalability, and reliability.
         </p>
       </section>
 
@@ -340,10 +418,7 @@ export default function App() {
           </p> */}
           <div className="flex flex-wrap gap-3">
             <a href={`mailto:${INFO.email}`}>
-              <Button variant="outline"className="rounded-2xl">
-                <Mail className="h-4 w-4 mr-2" />
-                Email me
-              </Button>
+              <EmailButton email={INFO.email} />
             </a>
             <a href={INFO.linkedin} target="_blank" rel="noreferrer">
               <Button variant="outline" className="rounded-2xl">
@@ -351,10 +426,12 @@ export default function App() {
                 Connect
               </Button>
             </a>
-            <a href={INFO.github} target="_blank" rel="noreferrer">
+            <a href={`https://wa.me/${INFO.phone.replace(/[^0-9]/g, "")}`}
+              target="_blank"
+              rel="noreferrer">
               <Button variant="outline" className="rounded-2xl">
-                <Github className="h-4 w-4 mr-2" />
-                GitHub
+                <Phone className="h-4 w-4 mr-2" />
+                WhatsApp
               </Button>
             </a>
           </div>

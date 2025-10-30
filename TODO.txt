@@ -13,3 +13,19 @@ TODO:
 # change the about - add AI collaboration
 # opening sentence - change for what eden sent me
 # \n in the software engineer * \n data oriented
+
+#
+* שפה פשוטה של על מה הפרויקט
+* מבנה שמות הפרויקטים יהיה זהה (נגיד אם מתחילים בפועל
+* lets talk - part time 
+* lets talk - add phone
+* cv:
+* change the phone phone number to be a link & WhatsApp
+* specialising to 
+* quickly learn - fast learner
+* bachelor of science to bsc
+* teenagers להוריד
+* squad commander in the start of the reference
+* Google analytics
+
+

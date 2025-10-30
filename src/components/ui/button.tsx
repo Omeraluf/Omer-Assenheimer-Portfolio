@@ -3,7 +3,7 @@ import React from "react";
 // 👇 this lets Button "pass through" its styles to its child (like <a>)
 import { Slot } from "@radix-ui/react-slot";
 
-type Variant = "default" | "secondary" | "outline" | "outlineBlue" | "outlineFilled" | "outlineGlow" | "outlineUnderline";
+type Variant = "default" | "secondary" | "outline" | "outlineBlue" | "outlineFilled" | "outlineGlow" | "outlineUnderline" | "primaryBlue" | "whiteOnDarkBlue" | "outlineBlueSoft" | "blue1";
 type Size = "default" | "sm";
 
 const base =
@@ -32,6 +32,27 @@ const variants: Record<Variant, string> = {
   "transition-all duration-300",
   ].join(" "),
 
+    // ⑤ primaryBlue — solid brand blue button
+  primaryBlue:
+    "bg-[#357cdb] text-white hover:bg-[#325fd1] focus:ring-[#2F80ED]",
+
+  // ⑥ gradientBlue — vibrant blue gradient button
+  whiteOnDarkBlue:
+  "flex items-center rounded-xl font-medium \
+   text-white bg-gradient-to-r from-[#84b4d9] to-[#599ccf] shadow-sm \
+   transition-all duration-300 hover:from-[#4FA8F8] hover:to-[#56CCF2] \
+   hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 \
+   focus:outline-none focus:ring-2 focus:ring-[#56CCF2]",
+
+  blue1:
+  "inline-flex items-center gap-2 rounded-full border border-[#357cdb]\
+  text-[#357cdb] px-3.5 py-2 text-sm font-medium\
+  hover:bg-[#357cdb]/10 hover:shadow-sm transition",
+  // ⑦ outlineBlueSoft — minimalist blue outline version
+  outlineBlueSoft:
+    "border border-[#2F80ED] text-[#2F80ED] hover:bg-[#EBF3FF] focus:ring-[#2F80ED]",
+
+
 
   };
 
@@ -40,25 +61,22 @@ const sizes: Record<Size, string> = {
   sm: "px-3 py-1.5 text-sm",
 };
 
-// 👇 add asChild to the props interface
-interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: Variant;
   size?: Size;
   className?: string;
-  asChild?: boolean; // <-- new
+  asChild?: boolean;
 }
 
 export function Button({
   variant = "default",
   size = "default",
   className = "",
-  asChild = false, // <-- default is false
+  asChild = false,
   ...props
 }: Props) {
-  // 👇 decide which element to render:
   // if asChild is true → use Slot, else → use <button>
-  const Comp = asChild ? Slot : "button";
-
+  const Comp: any = asChild ? Slot : "button";
   return (
     <Comp
       className={`${base} ${variants[variant]} ${sizes[size]} ${className}`}

@@ -1,0 +1,345 @@
+{
+  "todotree": {
+    "tree": [
+      {
+        "key": 1761671817185,
+        "children": [],
+        "todo": {
+          "content": "slow slide when jumping to sections",
+          "id": 1761671817185,
+          "level": "default",
+          "done": true,
+          "start": 1761671817185,
+          "focus": false,
+          "end": 1761671839448
+        }
+      },
+      {
+        "key": 1761671832719,
+        "children": [],
+        "todo": {
+          "content": "resume open in a new tab",
+          "id": 1761671832719,
+          "level": "default",
+          "done": true,
+          "start": 1761671832719,
+          "focus": false,
+          "end": 1761671838218
+        }
+      },
+      {
+        "key": 1761671846510,
+        "children": [],
+        "todo": {
+          "content": "download resume icon or not",
+          "id": 1761671846510,
+          "level": "default",
+          "done": true,
+          "start": 1761671846510,
+          "focus": false,
+          "end": 1761743751819
+        }
+      },
+      {
+        "key": 1761671861106,
+        "children": [],
+        "todo": {
+          "content": "split the code into different sections",
+          "id": 1761671861106,
+          "level": "default",
+          "done": false,
+          "start": 1761671861106
+        }
+      },
+      {
+        "key": 1761671922043,
+        "children": [],
+        "todo": {
+          "content": "add bsc",
+          "id": 1761671922043,
+          "level": "default",
+          "done": true,
+          "start": 1761671922043,
+          "focus": false,
+          "end": 1761744653026
+        }
+      },
+      {
+        "key": 1761671875974,
+        "children": [
+          {
+            "key": 1761671881433,
+            "children": [],
+            "todo": {
+              "content": "maybe add sql base?",
+              "id": 1761671881433,
+              "level": "default",
+              "done": false,
+              "start": 1761671881433
+            }
+          },
+          {
+            "key": 1761671900233,
+            "children": [],
+            "todo": {
+              "content": "should i make test? with Vitest?",
+              "id": 1761671900233,
+              "level": "default",
+              "done": false,
+              "start": 1761671900233
+            }
+          }
+        ],
+        "todo": {
+          "content": "questions",
+          "id": 1761671875974,
+          "level": "default",
+          "done": false,
+          "start": 1761671875974
+        }
+      },
+      {
+        "key": 1761671929412,
+        "children": [],
+        "todo": {
+          "content": "dismiss the #skills, #project etc - at the url",
+          "id": 1761671929412,
+          "level": "default",
+          "done": true,
+          "start": 1761671929412,
+          "focus": false,
+          "end": 1761747069683
+        }
+      },
+      {
+        "key": 1761671975444,
+        "children": [
+          {
+            "key": 1761672008688,
+            "children": [],
+            "todo": {
+              "content": "live and code with space between the hashtags",
+              "id": 1761672008688,
+              "level": "default",
+              "done": false,
+              "start": 1761672008688
+            }
+          }
+        ],
+        "todo": {
+          "content": "make the project cards - same size and format",
+          "id": 1761671975444,
+          "level": "default",
+          "done": true,
+          "start": 1761671975444,
+          "focus": false,
+          "end": 1761747072836
+        }
+      },
+      {
+        "key": 1761671993594,
+        "children": [],
+        "todo": {
+          "content": "",
+          "id": 1761671993594,
+          "level": "default",
+          "done": false,
+          "start": 1761671993594
+        }
+      },
+      {
+        "key": 1761672077762,
+        "children": [],
+        "todo": {
+          "content": "featured projects move it upwards",
+          "id": 1761672077762,
+          "level": "default",
+          "done": true,
+          "start": 1761672077762,
+          "focus": false,
+          "end": 1761753632773
+        }
+      },
+      {
+        "key": 1761672087897,
+        "children": [],
+        "todo": {
+          "content": "change the about - add AI collaboration",
+          "id": 1761672087897,
+          "level": "default",
+          "done": true,
+          "start": 1761672087897,
+          "focus": false,
+          "end": 1761754460013
+        }
+      },
+      {
+        "key": 1761672092738,
+        "children": [],
+        "todo": {
+          "content": "opening sentence - change for what eden sent me",
+          "id": 1761672092738,
+          "level": "default",
+          "done": true,
+          "start": 1761672092738,
+          "focus": false,
+          "end": 1761754465122
+        }
+      },
+      {
+        "key": 1761672094904,
+        "children": [],
+        "todo": {
+          "content": "\\n in the software engineer * \\n data oriented",
+          "id": 1761672094904,
+          "level": "default",
+          "done": true,
+          "start": 1761672094904,
+          "focus": false,
+          "end": 1761754467567
+        }
+      },
+      {
+        "key": 1761672102230,
+        "children": [],
+        "todo": {
+          "content": "שפה פשוטה של על מה הפרויקט",
+          "id": 1761672102230,
+          "level": "default",
+          "done": true,
+          "start": 1761672102230,
+          "focus": false,
+          "end": 1761754554046
+        }
+      },
+      {
+        "key": 1761672108253,
+        "children": [],
+        "todo": {
+          "content": "מבנה שמות הפרויקטים יהיה זהה (נגיד אם מתחילים בפועל",
+          "id": 1761672108253,
+          "level": "default",
+          "done": true,
+          "start": 1761672108253,
+          "focus": false,
+          "end": 1761754556276
+        }
+      },
+      {
+        "key": 1761672108474,
+        "children": [],
+        "todo": {
+          "content": "* lets talk - part time * lets talk - add phone",
+          "id": 1761672108474,
+          "level": "default",
+          "done": true,
+          "start": 1761672108474,
+          "focus": false,
+          "end": 1761754983227
+        }
+      },
+      {
+        "key": 1761672108597,
+        "children": [],
+        "todo": {
+          "content": "* cv:* change the phone phone number to be a link & WhatsApp* specialising to * quickly learn - fast learner* bachelor of science to bsc* teenagers להוריד* squad commander in the start of the reference* Google analytics",
+          "id": 1761672108597,
+          "level": "default",
+          "done": false,
+          "start": 1761672108597
+        }
+      },
+      {
+        "key": 1761672603125,
+        "children": [
+          {
+            "key": 1761672906646,
+            "children": [],
+            "todo": {
+              "content": "https://colorhunt.co/palette/ecf4e8cbf3bbabe7b293bfc7",
+              "id": 1761672906646,
+              "level": "default",
+              "done": true,
+              "start": 1761672906646,
+              "focus": false,
+              "end": 1761754989092
+            }
+          }
+        ],
+        "todo": {
+          "content": "Add colors",
+          "id": 1761672603125,
+          "level": "default",
+          "done": true,
+          "start": 1761672603125,
+          "focus": false,
+          "end": 1761754987855
+        }
+      },
+      {
+        "key": 1761673319688,
+        "children": [],
+        "todo": {
+          "content": "change skills style",
+          "id": 1761673319688,
+          "level": "default",
+          "done": true,
+          "start": 1761673319688,
+          "focus": false,
+          "end": 1761754997513
+        }
+      },
+      {
+        "key": 1761740531603,
+        "children": [],
+        "todo": {
+          "content": "add gentle background (gray",
+          "id": 1761740531603,
+          "level": "default",
+          "done": false,
+          "start": 1761740531603
+        }
+      },
+      {
+        "key": 1761755790484,
+        "children": [],
+        "todo": {
+          "content": "make live - preview - and work",
+          "id": 1761755790484,
+          "level": "default",
+          "done": false,
+          "start": 1761755790484
+        }
+      },
+      {
+        "key": 1761819497411,
+        "children": [],
+        "todo": {
+          "content": "readme",
+          "id": 1761819497411,
+          "level": "warning",
+          "done": false,
+          "start": 1761819497411
+        }
+      }
+    ],
+    "expandKeys": [
+      1761671875974,
+      1761671881433,
+      1761671975444,
+      1761672603125
+    ],
+    "schema": "https://github.com/Saber2pr/vsc-ext-todolist/blob/master/src/api/type.ts#L3",
+    "add_mode": "bottom",
+    "virtual": false,
+    "timelines": [],
+    "showLine": false,
+    "playFontSize": 24,
+    "title": "Todo",
+    "autoSort": false,
+    "showEndTime": false,
+    "simpleMode": false,
+    "lang": "en",
+    "version": "1761819507807"
+  }
+}
