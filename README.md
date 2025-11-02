@@ -38,7 +38,6 @@ It showcases my software projects, skills, and contact information in a clean, r
 src/
   components/
     ui/           # buttons, cards, etc.
-  sections/       # Hero, Projects, Skills, About, Contact
   data/           # info, projects, skills
   hooks/          # custom React hooks
   main.tsx        # entry point
