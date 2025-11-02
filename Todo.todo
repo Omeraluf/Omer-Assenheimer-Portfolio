@@ -343,6 +343,28 @@
           "done": false,
           "start": 1761829457851
         }
+      },
+      {
+        "key": 1761830897391,
+        "children": [],
+        "todo": {
+          "content": "speed insights",
+          "id": 1761830897391,
+          "level": "default",
+          "done": false,
+          "start": 1761830897391
+        }
+      },
+      {
+        "key": 1762093072321,
+        "children": [],
+        "todo": {
+          "content": "readme",
+          "id": 1762093072321,
+          "level": "default",
+          "done": false,
+          "start": 1762093072321
+        }
       }
     ],
     "expandKeys": [
@@ -362,6 +384,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "en",
-    "version": "1761829466166"
+    "version": "1762093078607"
   }
 }
