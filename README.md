@@ -1,59 +1,80 @@
-# Developer Portfolio
+# Omer Assenheimer — Developer Portfolio  
 
-A modern one-page developer portfolio built with React, TypeScript, Tailwind CSS (v4), and Vite.  
-This project serves as a personal website to showcase my projects, experience, and contact information in a clean and responsive layout.
+A modern one-page portfolio built with **React**, **TypeScript**, **Tailwind CSS v4**, and **Vite**.  
+It showcases my software projects, skills, and contact information in a clean, responsive, and easily maintainable layout.
+
+---
+
+## Live Demo
+[omer-assenheimer-portfolio.vercel.app](https://omer-assenheimer-portfolio.vercel.app)  
+
+![Portfolio Preview](assets/portfolio-preview.jpg) 
 
 ---
 
 ## Tech Stack
-
-- React – frontend framework for building dynamic interfaces  
-- TypeScript – type-safe development  
-- Tailwind CSS v4 – utility-first styling  
-- Vite – fast development and build tool  
-
----
-
-## Current Features
-
-- Basic layout and reusable UI components (Button, Card, etc.)  
-- Responsive design for desktop and mobile  
-- Tailwind setup with custom theme and utilities  
+| Category | Tools |
+|-----------|--------|
+| Frontend Framework | React 18 + TypeScript |
+| Styling | Tailwind CSS v4 |
+| Build Tool | Vite |
+| UI Toolkit | shadcn/ui  + Lucide Icons |
+| Deployment | Vercel (CI/CD from GitHub) |
 
 ---
 
-## Future Ideas
+## Key Features
+- Reusable UI components (`Button`, `Card`, `PreviewButton`)  
+- Video preview cards with hover effects  
+- Scroll-spy navigation (reactive active section highlight)  
+- Fully responsive layout for desktop and mobile  
+- Type-safe data (`INFO`, `PROJECTS`, `SKILLS`)  
+- Auto-deployed via Vercel on each commit  
 
-- Add animations and transitions using Framer Motion  
-- Improve mobile and tablet responsiveness  
-- Add detailed project cards with GitHub and live demo links  
-- Include a downloadable resume section  
-- Create a contact form with email integration (EmailJS or backend API)  
-- Implement dark/light mode toggle  
-- Add smooth scrolling and navigation between sections  
-- Deploy on Vercel  
+---
+
+## Project Structure
+```
+src/
+  components/
+    ui/           # buttons, cards, etc.
+  sections/       # Hero, Projects, Skills, About, Contact
+  data/           # info, projects, skills
+  hooks/          # custom React hooks
+  main.tsx        # entry point
+  App.tsx         # layout + scroll logic
+```
 
 ---
 
 ## Getting Started
-
 ```bash
-# Clone the repository
-git clone https://github.com/<your-username>/<your-repo>.git
+# 1. Clone the repo
+git clone https://github.com/Omeraluf/portfolio.git
+cd portfolio
 
-# Navigate into the project folder
-cd <your-repo>
-
-# Install dependencies
+# 2. Install dependencies
 npm install
 
-# Run locally
+# 3. Run locally
 npm run dev
 ```
+App runs at `http://localhost:5173`
+
+---
+
+## Future Plans
+- Add Framer Motion animations  
+- Dark / Light mode toggle (persistent theme)  
+- Add project demo videos and screenshots  
+- Analytics (Plausible / Google Analytics 4)  
+
+---
 
 ## Author
+**Omer Assenheimer** — Software Engineer (Data-Oriented)  
+Israel  
 
-- Omer Assenheimer
-- Israel
-- https://www.linkedin.com/in/omer-assenheimer/
-- https://github.com/Omeraluf/
+[LinkedIn](https://www.linkedin.com/in/omer-assenheimer/)  |  [GitHub](https://github.com/Omeraluf) | [Portfolio](https://omer-assenheimer-portfolio.vercel.app)  
+
+

@@ -39,7 +39,7 @@ export default function App() {
     return () => resizeObserver.disconnect();
   }, []);
 
-  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Spy Scroll START @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Spy Scroll START @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
   useEffect(() => {
   const sections = Array.from(document.querySelectorAll<HTMLElement>("section[id]"));
   if (!sections.length) return;
@@ -76,9 +76,9 @@ export default function App() {
   return () => observer.disconnect();
 }, []);
 
-  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Spy Scroll END @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Spy Scroll END @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-    // Back-to-top button visibility logic START
+  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  Back-to-top button visibility logic START @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
   const [showTop, setShowTop] = useState(false);
 
   useEffect(() => {
@@ -92,7 +92,7 @@ export default function App() {
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     window.scrollTo({ top: 0, behavior: prefersReduced ? "auto" : "smooth" });
   };
-  // Back-to-top button logic END
+  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Back-to-top button logic END @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 
   return (
@@ -209,10 +209,6 @@ export default function App() {
                   {"BSc Software Engineering"}
                 </p>
 
-                {/* <p className="flex items-center gap-2>
-                  <BookOpen className="h-4 w-4 inline-block mr-2" />
-                  {B.Sc. Software Engineering}
-                </p> */}
               </CardContent>
             </Card>
           </div>
@@ -253,18 +249,6 @@ export default function App() {
                 </ul>
 
                 <div className="mt-auto flex gap-2 pt-4">
-                  {/* <a href={p.live} target="_blank" rel="noreferrer"> */}
-                    {/* <Button size="sm" className="rounded-xl " variant="default"> */}
-                      
-                      {/* <PreviewButton src="/previews/DeepFake Detector.mp4" /> */}
-                      {/* <PreviewButton
-                        src="/previews/DeepFake Detector.mp4"
-                        poster="/previews/DeepFake Detector.jpg"
-                        label="Preview"
-                        
-                      /> */}
-                      {/* Preview */}
-                    {/* </Button> */}
                     <div>
                       <PreviewButton
                         variant="default"
