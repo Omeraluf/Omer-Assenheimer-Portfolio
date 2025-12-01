@@ -24,7 +24,8 @@ type Project = {
   tech: string[];
   live: string;
   repo: string;
-  videoSrc: string;
+  videoSrc?: string;
+  imageSrc?: string;
 };
 
 export const PROJECTS: Project[] = [
@@ -46,9 +47,18 @@ export const PROJECTS: Project[] = [
   videoSrc: "/previews/DeepFake Detector.mp4",
   },
   {
+  title: "Roni Mazor - Test Developer",
+  blurb:
+    "A modern, responsive Next.js website showcasing professional practice tests with a clean UI, smooth animations, and a scalable component-based design.",
+  tech: ["Next.js", "TypeScript", "TailwindCSS", "Framer Motion"],
+  live: "https://your-domain-here.vercel.app",
+  repo: "https://github.com/Omeraluf/roni-mazor-test-developer",
+  imageSrc: "/previews/RoniMazorTestDeveloper.jpg",
+  },
+  {
     title: "Structural Risk Monitor", //"IoT Building Safety Monitor", Building Stability Tracker
     blurb:
-      "A monitoring system for detecting structural risks from real-time sensor data.",
+      "A monitoring system for detecting structural civil engineering risks from real-time sensor data.",
     tech: ["Python", "FastAPI", "MongoDB", "WebSockets", "Grafana"],
     live: "#",
     repo: "https://github.com/omeraluf",
@@ -81,4 +91,5 @@ export const PROJECTS: Project[] = [
     repo: "https://github.com/Omeraluf/School-Saftey-Risk-Prediction",
     videoSrc: "",
   },
+
 ] as const;

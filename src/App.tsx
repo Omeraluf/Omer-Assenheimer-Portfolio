@@ -163,8 +163,7 @@ export default function App() {
 
             <p className="mt-4 text-neutral-700 leading-relaxed">
               {/* I build clean, efficient, and reliable software with a focus on clear logic, good structure, and meaningful user impact. */}
-              With an open mind and ambition to tackle challenges, I thrive as a
-              team player and strive to bring curiosity and creativity to every challenge.
+              With an open mind and ambition to tackle challenges, I thrive as a team player with creativity and curiosity.
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-3">
               <a href={`mailto:${INFO.email}`}>
@@ -253,6 +252,7 @@ export default function App() {
                       <PreviewButton
                         variant="default"
                         videoSrc={p.videoSrc}
+                        imageSrc={p.imageSrc}
                         popPlacement="top"
                         className = "rounded-xl size-sm"
                       >
